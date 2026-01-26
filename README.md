@@ -1,4 +1,6 @@
-# D-Link DSP-W215 (B1) – OpenWrt, PL8331 Power Meter & Relay Control
+# DSP‑W215 B1 OpenWrt Hacks
+
+Reverse engineering + practical control scripts for the **D‑Link DSP‑W215 B1 (EU / REV B1)** smart plug running OpenWrt.
 
 > A complete, real‑world, step‑by‑step guide to flashing OpenWrt on the **D‑Link DSP‑W215 B1**, fixing connectivity issues, dealing with snapshot/opkg chaos, enabling serial communication with the **PL8331 power metering chip**, controlling the relay, and extracting real‑time voltage/current/power values.
 
@@ -16,9 +18,29 @@ This guide is written and tested on:
 - RAM: 64 MB
 - Power metering IC: **Prolific PL8331**
 
+This repo focuses on:
+
+- **Flashing OpenWrt via the built‑in recovery web UI** (no Ethernet port)
+- **Fixing post‑flash connectivity issues** (sysupgrade step)
+- **Relay (AC output) control** via GPIO
+- **PL8331 UART power metering** on `/dev/ttyS0` (19200 baud)
+- A **working, real‑world monitoring script** (your “Adaptive V” version)
+- Reality of **snapshot-ish builds + broken opkg feeds** and the exact workaround you used
+
 A1/A2 variants behave differently (GPIO naming, PL8331 enable behavior, serial console conflicts, etc.). Some notes about A1/A2 are included, but scripts in this repo target **B1**.
 
+> ! **Mains voltage warning**: this device switches AC mains. Do not open the enclosure or probe the PCB while connected to mains. If you use TTL serial on the board, do it with the device safely isolated and/or powered from a safe low‑voltage setup.
+
+
 ---
+
+## References (upstream / authoritative)
+
+- OpenWrt Wiki hardware page: `https://openwrt.org/toh/d-link/dsp-w215`
+- Original OpenWrt support commit for B1 (Sebastian Schaper / s‑2): `https://github.com/s-2/openwrt/commit/0c162e7e482ebc92c8c4f5661c62771555399fc8`
+
+---
+
 
 ## Why this device is special
 
@@ -93,23 +115,23 @@ sysupgrade -n openwrt-ath79-tiny-dlink_dsp-w215-b1-squashfs-sysupgrade.bin
 
 ---
 
-# PART 3 — Wi‑Fi Login Credentials
+# PART 3 — Wi‑Fi Login Credentials (B1)
 
-Device auto‑generates Wi‑Fi credentials on boot.
+The device auto‑generates Wi‑Fi credentials on boot.
 
-SSID format:
+- SSID format:
 
-```
-DSP-XXYY
-```
+  `DSP-XXYY`
 
-Password format:
+- Password format:
 
-```
-<SSID><6-digit PIN printed on label>
+  `<SSID><6-digit PIN printed on the label>`
+
 Example:
-DSP-A1B2123456
-```
+
+- SSID: `DSP-A1B2`
+- PIN: `123456`
+- Password: `DSP-A1B2123456`
 
 ---
 
@@ -399,15 +421,7 @@ ssh root@192.168.X.X
 - Community reverse‑engineering
 
 ---
-## References & Upstream Work
 
-- OpenWrt Wiki – D-Link DSP-W215 hardware page:
-  https://openwrt.org/toh/d-link/dsp-w215
-
-- Original OpenWrt support commit (B1):
-  https://github.com/s-2/openwrt/commit/0c162e7e482ebc92c8c4f5661c62771555399fc8
-
-These two sources document the original community enablement of DSP-W215 on OpenWrt and should be considered the authoritative upstream references.
 
 
 
