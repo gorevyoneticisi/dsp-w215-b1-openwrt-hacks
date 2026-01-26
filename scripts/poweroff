@@ -1,0 +1,3 @@
+echo '#!/bin/sh' > /usr/bin/poweroff
+echo 'echo 0 > /sys/class/gpio/gpio:ac_output_enable/value' >> /usr/bin/poweroff
+chmod +x /usr/bin/poweroff
