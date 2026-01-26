@@ -399,7 +399,15 @@ ssh root@192.168.X.X
 - Community reverse‑engineering
 
 ---
+## References & Upstream Work
 
+- OpenWrt Wiki – D-Link DSP-W215 hardware page:
+  https://openwrt.org/toh/d-link/dsp-w215
+
+- Original OpenWrt support commit (B1):
+  https://github.com/s-2/openwrt/commit/0c162e7e482ebc92c8c4f5661c62771555399fc8
+
+These two sources document the original community enablement of DSP-W215 on OpenWrt and should be considered the authoritative upstream references.
 
 
 
