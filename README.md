@@ -1,4 +1,4 @@
-# DSP‑W215 B1 OpenWrt Hacks
+# D-Link DSP‑W215 B1 OpenWrt Hacks
 
 Reverse engineering + practical control scripts for the **D‑Link DSP‑W215 B1 (EU / REV B1)** smart plug running OpenWrt.
 
