@@ -37,6 +37,7 @@ A1/A2 variants behave differently (GPIO naming, PL8331 enable behavior, serial c
 ## References (upstream / authoritative)
 
 - OpenWrt Wiki hardware page: `https://openwrt.org/toh/d-link/dsp-w215`
+  
 - Original OpenWrt support commit for B1 (Sebastian Schaper / s‑2): `https://github.com/s-2/openwrt/commit/0c162e7e482ebc92c8c4f5661c62771555399fc8`
 
 ---
@@ -108,6 +109,8 @@ Immediately perform a sysupgrade to the matching sysupgrade image:
 ```sh
 cd /tmp
 wget http://sebastianschaper.net/openwrt/openwrt-ath79-tiny-dlink_dsp-w215-b1-squashfs-sysupgrade.bin
+```
+```sh
 sysupgrade -n openwrt-ath79-tiny-dlink_dsp-w215-b1-squashfs-sysupgrade.bin
 ```
 
