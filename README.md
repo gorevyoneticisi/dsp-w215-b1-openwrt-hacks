@@ -388,7 +388,7 @@ done
 Don't forget to fix permissions
 
 ```sh
-chmod +x /root/power_monitor_v2.sh
+chmod +x /root/power_monitor.sh
 ```
 
 ---
