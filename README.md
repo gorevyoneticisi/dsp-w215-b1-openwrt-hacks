@@ -57,6 +57,9 @@ Despite this, the device is perfectly usable as:
 - Power meter
 - Home Assistant / MQTT / SSH controlled plug
 
+# MQTT Integration Guide: 
+See `MQTT_integration.md` for step-by-step instructions on publishing readings to a Mosquitto broker (CasaOS) and viewing them with MQTTX/Web or other clients.
+
 ---
 
 # PART 1 — Flashing OpenWrt (Recovery Method)
