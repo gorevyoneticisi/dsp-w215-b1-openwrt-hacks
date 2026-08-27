@@ -6,6 +6,12 @@ Reverse engineering + practical control scripts for the **D‑Link DSP‑W215 B1
 
 This document is intentionally verbose and forensic. It exists so nobody else has to rediscover this through days of trial and error.
 
+> [!NOTE]
+> This is a device-specific archival guide for the B1 hardware revision and an
+> older community OpenWrt build. Verify every download source and keep a copy of
+> the known-working firmware before starting; current OpenWrt support and package
+> feeds may differ from the environment documented here.
+
 ---
 
 ## ⚠️ Scope
@@ -57,12 +63,12 @@ Despite this, the device is perfectly usable as:
 - Power meter
 - Home Assistant / MQTT / SSH controlled plug
 
-# MQTT Integration Guide: 
+## MQTT Integration
 See `MQTT_integration.md` for step-by-step instructions on publishing readings to a Mosquitto broker (CasaOS) and viewing them with MQTTX/Web or other clients.
 
 ---
 
-# PART 1 — Flashing OpenWrt (Recovery Method)
+## Part 1 — Flashing OpenWrt (Recovery Method)
 
 ### Download firmware
 
@@ -103,7 +109,7 @@ http://192.168.0.60
 
 ---
 
-# PART 2 — Post‑Flash Connectivity Fix (CRITICAL)
+## Part 2 — Post‑Flash Connectivity Fix (Critical)
 
 After factory flash, networking may be unstable or broken.
 
@@ -121,7 +127,7 @@ sysupgrade -n openwrt-ath79-tiny-dlink_dsp-w215-b1-squashfs-sysupgrade.bin
 
 ---
 
-# PART 3 — Wi‑Fi Login Credentials (B1)
+## Part 3 — Wi‑Fi Login Credentials (B1)
 
 The device auto‑generates Wi‑Fi credentials on boot.
 
@@ -141,7 +147,7 @@ Example:
 
 ---
 
-# PART 4 — Relay Control (B1)
+## Part 4 — Relay Control (B1)
 
 The B1 variant exposes a GPIO directly controlling AC relay:
 
@@ -183,7 +189,7 @@ poweroff
 
 ---
 
-# PART 5 — Serial Interface to PL8331 (Power Meter)
+## Part 5 — Serial Interface to PL8331 (Power Meter)
 
 PL8331 is connected to:
 
@@ -199,7 +205,7 @@ Baud rate:
 
 ---
 
-# PART 6 — Snapshot / opkg Reality
+## Part 6 — Snapshot / opkg Reality
 
 This firmware behaves like a snapshot build.
 
@@ -213,7 +219,7 @@ Solution: manual IPK installation + architecture override.
 
 ---
 
-# PART 7 — Installing stty (Required)
+## Part 7 — Installing stty (Required)
 
 BusyBox build does **NOT** include stty.
 
@@ -282,7 +288,7 @@ stty --version
 
 ---
 
-# PART 8 — First Contact with PL8331
+## Part 8 — First Contact with PL8331
 
 ```sh
 stty -F /dev/ttyS0 19200 raw -echo
@@ -301,7 +307,7 @@ This confirms UART + chip are alive.
 
 ---
 
-# PART 9 — Raw Byte Inspection (Discovery Phase)
+## Part 9 — Raw Byte Inspection (Discovery Phase)
 
 ```sh
 echo -e ":01M\n" > /dev/ttyS0
@@ -327,7 +333,7 @@ This explains why cleaning with printable‑only filtering is required.
 
 ---
 
-# PART 10 — Working Monitoring Script (Adaptive Voltage)
+## Part 10 — Working Monitoring Script (Adaptive Voltage)
 
 ```sh
 #!/bin/sh
@@ -396,7 +402,7 @@ chmod +x /root/power_monitor.sh
 
 ---
 
-# PART 11 — Example Output
+## Part 11 — Example Output
 
 ```
 RAW DATA:  221371$01I 000524
@@ -407,7 +413,7 @@ POWER   : 11.51 W
 
 ---
 
-# PART 12 — Home Assistant Integration (SSH Command Line Switch)
+## Part 12 — Home Assistant Integration (SSH Command Line Switch)
 
 ```yaml
 switch:
@@ -426,7 +432,7 @@ ssh root@192.168.X.X
 
 ---
 
-# PART 13 — Credits
+## Part 13 — Credits
 
 - Sebastian Schaper (s‑2) — Original OpenWrt support
 - accwebs — A1/A2 resurrection and modern branches
