@@ -11,6 +11,7 @@ This document is intentionally verbose and forensic. It exists so nobody else ha
 > older community OpenWrt build. Verify every download source and keep a copy of
 > the known-working firmware before starting; current OpenWrt support and package
 > feeds may differ from the environment documented here.
+> Test video: https://www.youtube.com/shorts/X9jhSiGI8RM
 
 ---
 
