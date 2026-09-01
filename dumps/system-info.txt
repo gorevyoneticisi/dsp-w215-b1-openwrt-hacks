@@ -1,0 +1,83 @@
+dev:    size   erasesize  name
+mtd0: 00010000 00010000 "u-boot"
+mtd1: 00010000 00010000 "art"
+mtd2: 00010000 00010000 "mp"
+mtd3: 00010000 00010000 "config"
+mtd4: 00010000 00010000 "log"
+mtd5: 00260000 00010000 "recovery"
+mtd6: 00550000 00010000 "firmware"
+mtd7: 001a0000 00010000 "kernel"
+mtd8: 003b0000 00010000 "rootfs"
+mtd9: 000b0000 00010000 "rootfs_data"
+===
+Linux version 5.10.109 (sebastian@sebastian-msi) (mips-openwrt-linux-musl-gcc (OpenWrt GCC 11.2.0 r19138+51-4ecf8346c0) 11.2.0, GNU ld (GNU Binutils) 2.37) #0 Fri Jun 24 21:09:07 2022
+===
+system type		: Qualcomm Atheros QCA9533 ver 2 rev 0
+machine			: D-Link DSP-W215 B1
+processor		: 0
+cpu model		: MIPS 24Kc V7.4
+BogoMIPS		: 432.53
+wait instruction	: yes
+microsecond timers	: yes
+tlb_entries		: 16
+extra interrupt vector	: yes
+hardware watchpoint	: yes, count: 4, address/irw mask: [0x0ffc, 0x0ffc, 0x0ffb, 0x0ffb]
+isa			: mips1 mips2 mips32r1 mips32r2
+ASEs implemented	: mips16
+Options implemented	: tlb 4kex 4k_cache prefetch mcheck ejtag llsc dc_aliases perf_cntr_intr_bit perf
+shadow register sets	: 1
+kscratch registers	: 0
+package			: 0
+core			: 0
+VCED exceptions		: not available
+VCEI exceptions		: not available
+
+===
+MemTotal:          59404 kB
+MemFree:           35456 kB
+MemAvailable:      28180 kB
+Buffers:               0 kB
+Cached:             8692 kB
+SwapCached:            0 kB
+Active:             5512 kB
+Inactive:           4784 kB
+Active(anon):        116 kB
+Inactive(anon):     1556 kB
+Active(file):       5396 kB
+Inactive(file):     3228 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:          1616 kB
+Mapped:             3076 kB
+Shmem:                76 kB
+KReclaimable:       1396 kB
+Slab:               8048 kB
+SReclaimable:       1396 kB
+SUnreclaim:         6652 kB
+KernelStack:         312 kB
+PageTables:          360 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:       29700 kB
+Committed_AS:       7252 kB
+VmallocTotal:    1048372 kB
+VmallocUsed:        1976 kB
+VmallocChunk:          0 kB
+Percpu:               32 kB
+===
+Linux OpenWrt 5.10.109 #0 Fri Jun 24 21:09:07 2022 mips GNU/Linux
+===
+DISTRIB_ID='OpenWrt'
+DISTRIB_RELEASE='SNAPSHOT'
+DISTRIB_REVISION='r19327+6-5959c46456'
+DISTRIB_TARGET='ath79/tiny'
+DISTRIB_ARCH='mips_24kc'
+DISTRIB_DESCRIPTION='OpenWrt SNAPSHOT r19327+6-5959c46456'
+DISTRIB_TAINTS='no-all'
+===
+r19327+6-5959c46456

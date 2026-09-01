@@ -67,6 +67,18 @@ Despite this, the device is perfectly usable as:
 ## MQTT Integration
 See `MQTT_integration.md` for step-by-step instructions on publishing readings to a Mosquitto broker (CasaOS) and viewing them with MQTTX/Web or other clients.
 
+## Live B1 dump (2026-09-01)
+
+SSH `/proc/mtd` plus binwalk of recovery and kernel partitions is in `docs/live-b1-flash-layout.md`. Dumps are under `dumps/`.
+
+Short version:
+
+- recovery is 2432 KiB (`0x260000`). squashfs starts at `0xE0000` in that partition.
+- OpenWrt firmware is 5440 KiB. Live kernel/rootfs split is `0x1a0000` (1664 KiB kernel), not the OEM 896 KiB DAP slot.
+- GPIO 0 is `ac_output_enable`. One gpio-export. `gpio-keys` failed because `key_ac_toggle` has no keycode.
+
+art, overlay (`rootfs_data`), and live passwords are not in this repo.
+
 ---
 
 ## Part 1 — Flashing OpenWrt (Recovery Method)

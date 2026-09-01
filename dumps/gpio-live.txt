@@ -1,0 +1,17 @@
+gpiochip0: GPIOs 0-31, parent: platform/18040000.gpio, 18040000.gpio:
+ gpio-0   (                    |gpio:ac_output_enabl) out lo
+ gpio-3   (                    |red:power           ) out hi ACTIVE LOW
+ gpio-4   (                    |green:power         ) out lo ACTIVE LOW
+ gpio-11  (                    |red:wps             ) out hi ACTIVE LOW
+ gpio-12  (                    |green:wps           ) out hi ACTIVE LOW
+
+dmesg:
+ gpio-export gpio-export: 1 gpio(s) exported
+ gpio-keys keys: Button node 'key_ac_toggle' without keycode
+ gpio-keys: probe of keys failed with error -22
+
+LEDs at dump time:
+ green:power brightness=255
+ green:wps brightness=0
+ red:power brightness=0
+ red:wps brightness=0

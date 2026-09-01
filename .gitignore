@@ -1,0 +1,8 @@
+dumps/mtd1-art.bin
+dumps/mtd2-mp.bin
+dumps/mtd6-firmware.bin
+dumps/mtd9-rootfs_data.bin
+dumps/full-flash.bin
+**/wireless-and-auth.txt
+**/*shadow*
+_scan_*.py
